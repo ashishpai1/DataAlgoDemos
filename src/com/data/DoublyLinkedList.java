@@ -26,7 +26,7 @@ public class DoublyLinkedList {
 	    
 	    dList.deleteFirstNode();
 	   
-
+	    dList.insertAtPosition(3, "anuj");
 		dList.displayList();		
 
 		
@@ -53,6 +53,48 @@ public class DoublyLinkedList {
 		
 		
 	}
+	
+	
+	
+	public void insertAtPosition(int pos, String str ){
+		
+		NodeDD newNode = new NodeDD();
+		newNode.data = str;
+		
+		NodeDD cur = root;
+		int count = 1;
+		
+		while(cur.next != null){
+			if(count==pos){
+				
+				break;
+			}
+			
+			count++;
+			cur = cur.next;
+			
+			
+		}
+		
+		
+		
+		if(count == pos){
+			
+		 (cur.prev).next = newNode;
+		 newNode.prev = (cur.prev);
+		 newNode.next = cur;
+		 cur.prev = newNode;
+			
+		}
+		
+		
+		
+	}
+	
+	
+	
+	
+	
 	
 	
 	
