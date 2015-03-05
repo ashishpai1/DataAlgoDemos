@@ -14,11 +14,21 @@ public class DoublyLinkedList {
 		DoublyLinkedList dList = new DoublyLinkedList();
 		dList.addNodeAtEnd("Ashish");
 		dList.addNodeAtEnd("Ishjyot");
+		dList.addNodeAtEnd("Abc");
+		//dList.displayList();		
+		
+	    dList.addNodeAtStart("yo yo");
+	    dList.addNodeAtStart("Interno");
+	    System.out.println("----------------------------------------");
+		dList.displayList();		
+	    System.out.println("----------------------------------------");
+	   // dList.deleteLastNode();
+	    
+	    dList.deleteFirstNode();
+	   
 
 		dList.displayList();		
-			
-			
-		
+
 		
 	}
 	
@@ -43,6 +53,103 @@ public class DoublyLinkedList {
 		
 		
 	}
+	
+	
+	
+    public void deleteFirstNode(){
+		
+    	if(root == null){
+    		System.out.println("LinkedList empty. Cannot delete nodes. ");
+    		return;
+    	}
+    	
+    	
+		if(root.next == null){
+			root = null;
+			return;
+			
+		}else{
+			root = root.next;
+		    root.prev = null; 
+			
+		}
+		
+    	
+		
+    	
+    }	
+	
+	
+	public void deleteLastNode(){
+			NodeDD cur = root;
+		
+
+	    	if(root == null){
+	    		System.out.println("LinkedList empty. Cannot delete nodes. ");
+	    		return;
+	    	}
+	    	
+			
+			
+			if(root.next == null){
+				
+				root = null;
+				return;
+			}
+			
+			
+			while(cur.next!=null){
+				cur = cur.next;
+				
+				
+			}
+			
+			if(cur.next == null){
+				(cur.prev).next = null;
+				
+			}
+			
+		
+		
+	}
+	
+	
+	
+	public void addNodeAtStart(String str){
+		NodeDD newNode = new NodeDD();
+		newNode.data = str;
+		
+		if(root == null){
+			root = newNode;
+			return;
+			
+		}else{
+			NodeDD temp = root;
+			
+			root = newNode;
+			root.next = temp;
+			root.prev = null;
+			temp.prev = root;
+		
+			
+		}
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public void addNodeAtEnd(String str){
 		NodeDD newNode = new NodeDD();
